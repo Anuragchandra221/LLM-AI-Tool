@@ -29,6 +29,9 @@ body{
     width: 90%;
     border: none;
 }
+.input-box>input:focus{
+    outline: none;
+}
 .input-box>button{
     /* height: 80%; */
 }

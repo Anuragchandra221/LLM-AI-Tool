@@ -4,13 +4,13 @@
 {% block content %}
 
     <div>
-        <form action="/" class="home" method="POST">
+        <form class="home py-3" id="form" method="POST">
             <div class="answer">
-                {{data}}
+                <p id="answer"></p>
             </div>
             <div class="input-box">
                 <input type="text" name="message" id="text"/>
-                <button id="#submit">send</button>
+                <button id="submit">send</button>
             </div>
         </form>
     </div>
@@ -18,25 +18,26 @@
     
 
     <script type="text/javascript">
-        $(document).ready(function() {
-            $('#submit').click(function() {
-                // console.log("hihi")
-                var textInput = $('#text').val();
-                alert(textInput)
-                $.ajax({
+        $(document).ready(()=>{
+            $("#submit").click((ev)=>{
+                ev.preventDefault();
+                // alert("hihi")
+                var text = $("#text").val()
+                var req = $.ajax({
                     type: 'POST',
                     url: '/',
-                    contentType: 'application/json',
-                    data: {'text': textInput},
-                    success: function(response) {
-                        $('#answer').text(response.result);
-                    },
-                    error: function(xhr, status, error) {
-                        console.error('Error:', error);
-                    }
-                });
-            });
-        });
+                    data: {'message':text}
+                })
+                req.done((data)=>{
+                    // $("#answer").text(data.result)
+                    var existingContent = $("#answer").html(); // Get existing content
+                    var newContent = existingContent + "<br/>" + data.result; // Concatenate
+                    $("#answer").html(newContent);
+                    $("#text").val("")
+                })
+
+            })
+        })
     </script>
 
 {% endblock %}
