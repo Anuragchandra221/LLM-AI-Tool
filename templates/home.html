@@ -3,8 +3,37 @@
 
 {% block content %}
 
-    <div>
-        <h1>Welcome !!</h1>
+    <div class="home py-3">
+        <div class="answer" id="answer">
+
+        </div>
+        <form class="input-box" method="POST" action="/">
+            <input type="text" name="message" id="text" placeholder="Enter your message">
+            <button id="submit">Send</button>
+        </form>
     </div>
     
+    
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $('#submit').click(function() {
+                // console.log("hihi")
+                var textInput = $('#text').val();
+                alert(textInput)
+                $.ajax({
+                    type: 'POST',
+                    url: '/',
+                    data: {'text': textInput},
+                    success: function(response) {
+                        $('#answer').text(response.result);
+                    },
+                    error: function(xhr, status, error) {
+                        console.error('Error:', error);
+                    }
+                });
+            });
+        });
+    </script>
+
 {% endblock %}
