@@ -10,7 +10,9 @@ def home():
     if(request.method=="GET"):
         return render_template('home.html')
     else:
-        text_input = request.form['text']
+        text_input = request.json['text']
+        print(text_input)
+        # return render_template('home.html', data=text_input)
         processed_text = "You entered: " + text_input
         return jsonify({'result': processed_text })
 

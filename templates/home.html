@@ -4,7 +4,15 @@
 {% block content %}
 
     <div>
-        <h1>Welcome !!</h1>
+        <form action="/" class="home" method="POST">
+            <div class="answer">
+                {{data}}
+            </div>
+            <div class="input-box">
+                <input type="text" name="message" id="text"/>
+                <button id="#submit">send</button>
+            </div>
+        </form>
     </div>
     
     
@@ -18,6 +26,7 @@
                 $.ajax({
                     type: 'POST',
                     url: '/',
+                    contentType: 'application/json',
                     data: {'text': textInput},
                     success: function(response) {
                         $('#answer').text(response.result);
