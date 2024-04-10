@@ -7,6 +7,7 @@ from sql_llm import sql_to_llm
 from werkzeug.datastructures import ImmutableMultiDict
 from moviepy.editor import VideoFileClip
 from voice_to_text import voice_to_text
+from database_config import username, password, host, database
 
 app = Flask(__name__)
 
@@ -18,10 +19,10 @@ def home():
         # print(request.files)
         print(request.form)
         text_input = request.form['message']
-        username = "root"
-        password = "root"
-        host = "localhost"
-        database =  "atliq_tshirts"
+        # username = "root"
+        # password = "root"
+        # host = "localhost"
+        # database =  "atliq_tshirts"
         flag = 0
         if text_input!="":
             text_input

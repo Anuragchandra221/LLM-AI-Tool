@@ -38,7 +38,7 @@
                 $("#text").val("")
                 if(text != ""){
                     var existingContent = $("#answer").html();
-                    var newContent = existingContent  + "<p class='question mb-2'><span class='user'>User: </span>"+ text + "</p>"; // Concatenate
+                    var newContent = existingContent  + "<p class='question mb-3'><span class='user mr-2'>User: </span>"+ text + "</p>"; // Concatenate
                     console.log(existingContent, newContent)
                     $("#answer").html(newContent);
                 }else{
@@ -58,12 +58,12 @@
                     // $("#answer").text(data.result)
                     if(data.query){
                         var existingContent = $("#answer").html(); // Get existing content
-                        var newContent = existingContent + "<p class='question mb-2'><span class='user'>User: </span>"+ data.query + "</p>"+"<p class='answer mb-4'><span class='ai'>DragonSense: </span>"+data.result+"</p>"; // Concatenate
+                        var newContent = existingContent + "<p class='question mb-3 '><span class='user mr-2'>User:</span>"+ data.query + "</p>"+"<p class='question  mb-5'><span class='ai mr-2'>DragonSense: </span>"+data.result+"</p>"; // Concatenate
                         console.log(newContent)
                         $("#answer").html(newContent);
                     }else{
                         var existingContent = $("#answer").html(); // Get existing content
-                        var newContent = existingContent + "<p class='answer mb-4'><span class='ai'>DragonSense: </span>"+data.result+"</p>"; // Concatenate
+                        var newContent = existingContent + "<p class='question mb-5'><span class='ai mr-2'>DragonSense:</span>"+data.result+"</p>"; // Concatenate
                         console.log(newContent)
                         $("#answer").html(newContent);
                     }
@@ -76,8 +76,10 @@
                 e.preventDefault()
                 console.log('voice', isRecoding)
                 if(isRecoding){
+                    document.getElementById('voice').innerHTML = "Stop!!"
                     startRecording()
                 }else{
+                    document.getElementById('voice').innerHTML = "Record"
                     stopRecording()
                 }
             })
