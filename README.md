@@ -58,7 +58,9 @@ We welcome contributions from the community! Feel free to:
 
 * Fork the repository and propose changes through pull requests.
 * Report bugs or suggest new features through GitHub issues.
-* Share your ideas and experiences with Dragonsense AI!
+* Share your ideas and experiences with DragonSense AI!
+
+## For more details, check the original repository https://github.com/Anuragchandra221/LLM-AI-Tool
   
 
 
