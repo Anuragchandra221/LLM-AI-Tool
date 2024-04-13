@@ -8,6 +8,7 @@ from werkzeug.datastructures import ImmutableMultiDict
 from moviepy.editor import VideoFileClip
 from voice_to_text import voice_to_text
 from database_config import username, password, host, database
+from mal_audio import recognize_and_translate_malayalam
 
 app = Flask(__name__)
 
@@ -32,7 +33,7 @@ def home():
             audio_file.save("audio.webm")
             audio = AudioSegment.from_file("audio.webm", fomat="webm")
             audio.export("audio.wav", format="wav")
-            text_input = voice_to_text("audio.wav")
+            text_input = recognize_and_translate_malayalam("audio.wav")
             print(text_input)
             flag = 1
          

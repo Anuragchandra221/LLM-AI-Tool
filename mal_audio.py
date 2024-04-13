@@ -1,5 +1,6 @@
 import speech_recognition as sr
 from googletrans import Translator
+from deep_translator import GoogleTranslator
 
 def recognize_and_translate_malayalam(audio_file_path):
     
@@ -9,12 +10,15 @@ def recognize_and_translate_malayalam(audio_file_path):
         audio_data = recognizer.record(source)
 
     malayalam_text = recognizer.recognize_google(audio_data, language="ml-IN")
+    print(malayalam_text)
 
     
-    translator = Translator(to_lang="en", from_lang="ml")
-    translated_text = translator.translate(malayalam_text)
+    # translator = Translator()
+    # translated_text = translator.translate(malayalam_text, src="en")
 
-    return translated_text
+    translated = GoogleTranslator(source='auto', target="en").translate(malayalam_text)
 
-translated_text = recognize_and_translate_malayalam("C:/Users/hp/Desktop/LLM-AI-Tool/audi.wav")
-print("Translated Text:", translated_text)
+    return translated
+
+# translated_text = recognize_and_translate_malayalam("audio.wav")
+# print("Translated Text:", translated_text)
