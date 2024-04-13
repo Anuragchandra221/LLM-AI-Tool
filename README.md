@@ -17,6 +17,11 @@ This DragonSense AI is implemented using different technologies and alogirthms.
       * SQL DatabaseChain: Combines the SQLDatabase instance with a large language model(LLM) for text-to-SQL conversion.
 * **Google Generative-AI:Text Bison:** For text-to-SQL conversion within the SQLDatabaseChain.
 * **Machine Learning:** For text to speech and speech to text conversions.
+
+## Architecture: 
+
+![figure](https://github.com/Anuragchandra221/LLM-AI-Tool/assets/66366665/a92056a9-aab8-4053-b56f-0e562a9dffe0)
+
 ## Getting Started:
 1. **Create a virtual environment**
 ```
